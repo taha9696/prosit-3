@@ -9,12 +9,18 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<table>
+{% for a in authors %}
+<tr>
+<td>{{a.id}}</td>
+<td>{{a.username}}</td>
+<td>{{a.email}}</td>
+    <td>{{a.NbBooks}}</td>
+<td><a href={{path('app_author_delete',{id:a.id})}}>delete</a></td>
+<td><a href={{path('app_author_update',{id:a.id})}}>Update</a></td>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/essid/FirstProject/src/Controller/AuthorController.php'|file_link(0) }}">src/Controller/AuthorController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/essid/FirstProject/templates/author/index.html.twig'|file_link(0) }}">templates/author/index.html.twig</a></code></li>
-    </ul>
+</tr>
+{% endfor %}
+</table>
 </div>
 {% endblock %}
